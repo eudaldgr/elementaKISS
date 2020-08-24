@@ -10,3 +10,7 @@ cp data/plank.desktop.in     data/plank.desktop
 
 make
 make DESTDIR="$1" install
+
+# Remove unused stuff
+rm -rf "$1/usr/share/locale"
+rm -rf "$1/usr/share/man"
