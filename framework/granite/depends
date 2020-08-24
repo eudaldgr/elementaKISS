@@ -1,0 +1,9 @@
+cairo
+gdk-pixbuf
+gobject-introspection make
+gtk+3
+libgee
+meson                 make
+pango
+samurai               make
+vala                  make
