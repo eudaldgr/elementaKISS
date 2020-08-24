@@ -3,7 +3,11 @@
 ./configure \
     --prefix=/usr \
     --sysconfdir=/etc \
-    --enable-static=no
+    --enable-static=no \
+    --without-examples
 
 make
 make DESTDIR="$1" install
+
+# Remove gtk-doc files
+rm -rf "$1/usr/share/gtk-doc"
