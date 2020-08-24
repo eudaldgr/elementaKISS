@@ -1,0 +1,11 @@
+atk
+bamf
+cairo
+gdk-pixbuf
+glib
+gnome-menus
+gtk+3
+libX11
+libXi
+pango
+vala        make

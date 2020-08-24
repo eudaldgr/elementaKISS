@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+cp data/plank.appdata.xml.in data/plank.appdata.xml
+cp data/plank.desktop.in     data/plank.desktop
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --disable-apport
+
+make
+make DESTDIR="$1" install
