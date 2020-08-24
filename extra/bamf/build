@@ -14,3 +14,6 @@ sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
 
 make
 make DESTDIR="$1" install
+
+# Remove gtk-doc files
+rm -rf "$1/usr/share/gtk-doc"
