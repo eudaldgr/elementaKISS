@@ -1,0 +1,8 @@
+cairo
+glib
+gobject-introspection
+gtk+3
+libX11
+meson                 make
+pango
+samurai               make
