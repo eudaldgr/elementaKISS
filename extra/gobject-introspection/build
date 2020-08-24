@@ -13,3 +13,8 @@ meson \
 
 ninja -C output
 ninja -C output install
+
+# Remove unused stuff
+rm -rf "$1/usr/lib/gobject-introspection/giscanner/doctemplates"
+rm -rf "$1/usr/share/gobject-introspection-1.0/tests"
+rm -rf "$1/usr/share/man"
