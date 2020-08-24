@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+sed -i configure -e 's;if !($PYTHON -c "import libxslt, libxml2" 2> /dev/null);if false;'
+sed -i configure -e '/CFLAGS=/s/ \-Werror / /'
+
+./configure \
+    --prefix=/usr \
+    --libexecdir=/usr/lib \
+    --localstatedir=/var \
+    --sysconfdir=/etc \
+    --disable-gtk-doc
+
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+
+make
+make DESTDIR="$1" install

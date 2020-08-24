@@ -1,0 +1,4 @@
+gobject-introspection make
+libgtop
+libwnck
+vala                  make
