@@ -1,0 +1,8 @@
+gcr
+glib
+granite
+gtk+3
+meson      make
+samurai    make
+vala       make
+webkit2gtk
