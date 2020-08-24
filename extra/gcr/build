@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+meson \
+    --prefix=/usr \
+    --libexecdir=/usr/bin \
+    --buildtype=plain \
+    -Dgtk_doc=false \
+    -Dgpg_path=/usr/bin/gpg2 \
+    . output
+
+ninja -C output
+ninja -C output install
