@@ -1,0 +1,17 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+meson \
+    --prefix=/usr \
+    --buildtype=plain \
+    -Dtrust_paths=/etc/ssl/certs/ca-certificates.crt \
+    . output
+
+ninja -C output
+ninja -C output install
+
+# Remove unused stuff
+rm -rf "$1/etc"
+rm -rf "$1/usr/bin"
+rm -rf "$1/usr/libexec"
