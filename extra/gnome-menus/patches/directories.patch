@@ -1,0 +1,12 @@
+--- old/desktop-directories/Makefile.in
++++ new/desktop-directories/Makefile.in
+@@ -551,8 +551,7 @@
+ 
+ 
+ %.directory: %.directory.desktop.in
+-	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -o $@-t \
+-		-d $(top_srcdir)/po && mv $@-t $@
++	cp $< $@
+ 
+ -include $(top_srcdir)/git.mk
+ 
