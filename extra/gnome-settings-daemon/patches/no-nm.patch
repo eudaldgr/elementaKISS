@@ -1,0 +1,10 @@
+--- old/meson.build
++++ new/meson.build
+@@ -212,7 +212,6 @@
+ 
+ # Sharing plugin
+ enable_network_manager = get_option('network_manager')
+-assert(enable_network_manager or not host_is_linux, 'NetworkManager support is not optional on Linux platforms')
+ if enable_network_manager
+   # network manager
+   libnm_dep = dependency('libnm', version: '>= 1.0')

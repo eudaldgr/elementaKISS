@@ -1,0 +1,14 @@
+alsa-lib
+colord
+gcr
+geoclue
+geocode-glib
+gnome-desktop
+lcms2
+libcanberra
+libgweather
+libnotify
+nss
+polkit-elogind
+pulseaudio
+upower
