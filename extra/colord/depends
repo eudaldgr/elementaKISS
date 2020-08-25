@@ -1,0 +1,11 @@
+elogind
+eudev
+glib
+lcms2
+libcap
+libffi
+libgudev
+libgusb
+libusb
+polkit-elogind
+sqlite
