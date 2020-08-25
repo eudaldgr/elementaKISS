@@ -1,0 +1,23 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+meson \
+    --prefix=/usr \
+    --libdir=/usr/lib \
+    --buildtype=plain \
+    -Ddocs=false \
+    .  build
+
+ninja -C build
+ninja -C build install
+
+# Remove unused stuff, we only want the introspection files
+rm -rf "$1/usr/share/installed-tests"
+rm -rf "$1/usr/libexec"
+rm -rf "$1/usr/lib/pkgconfig"
+rm -rf "$1/usr/bin"
+rm -rf "$1/usr/include"
+rm -rf "$1/usr/lib/libjson-glib-1.0.so.0.400.4"
+rm -rf "$1/usr/lib/libjson-glib-1.0.so.0"
+rm -rf "$1/usr/lib/libjson-glib-1.0.so"
