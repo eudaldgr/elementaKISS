@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr
+
+make
+make DESTDIR="$1" pkgconfigdir=/usr/lib/pkgconfig install
+
+# Remove stuff
+rm -rf "$1/usr/share/locale"
