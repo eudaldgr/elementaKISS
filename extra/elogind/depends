@@ -1,0 +1,7 @@
+coreutils make
+dbus
+eudev
+gperf     make
+libcap
+linux-pam
+meson     make
