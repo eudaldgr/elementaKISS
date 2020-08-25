@@ -1,0 +1,13 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --localstatedir=/var \
+    --sysconfdir=/etc \
+    --disable-sqlite
+
+make
+make DESTDIR="$1" install
+
+# Remove unused stuff
+rm -rf "$1/usr/share"
