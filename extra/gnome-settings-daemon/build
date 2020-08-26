@@ -8,6 +8,7 @@ done
 
 meson \
     --prefix=/usr \
+    --libexecdir=/usr/lib/gnome-settings-daemon \
     --sysconfdir=/etc \
     --localstatedir=/var \
     --buildtype=plain \
