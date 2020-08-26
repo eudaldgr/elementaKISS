@@ -19,7 +19,7 @@ meson \
     -Dapidocs=false \
     -Dinstall-docs=false \
     -Dstemming=false \
-    -Dvapi=false \
+    -Dvapi=true \
     -Dapt-support=false \
     -Dgir=true \
     . output
