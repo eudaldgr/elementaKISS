@@ -1,0 +1,10 @@
+atk
+cairo
+cogl
+gobject-introspection
+gtk+3
+json-glib
+libXcomposite
+libXi
+mesa
+pango

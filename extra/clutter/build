@@ -1,0 +1,19 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --mandir=/usr/share/man \
+    --localstatedir=/var \
+    --with-x \
+    --enable-gdk-backend \
+    --enable-egl-backend \
+    --disable-wayland-backend \
+    --enable-x11-backend \
+    --enable-evdev-input
+
+make
+make DESTDIR="$1" install
+
+# Remove unused stuff
+rm -rf "$1/usr/share/gtk-doc"
