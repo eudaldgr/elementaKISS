@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+cmake -B build \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DSHARED_ONLY=true \
+    -DENABLE_GTK_DOC=false \
+    -DGOBJECT_INTROSPECTION=true \
+    -DICAL_GLIB_VAPI=true
+
+cmake --build   build
+cmake --install build
