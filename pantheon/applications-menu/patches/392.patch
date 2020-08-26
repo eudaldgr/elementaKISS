@@ -1,0 +1,56 @@
+From 87d650dee111a4f7a50116f9e8e164993c36cb1c Mon Sep 17 00:00:00 2001
+From: Fabio Valentini <decathorpe@gmail.com>
+Date: Fri, 29 May 2020 00:27:29 +0200
+Subject: [PATCH] meson: clean up superfluous unity dep and make zeitgeist
+ really optional
+
+---
+ meson.build       | 8 --------
+ meson_options.txt | 1 -
+ src/meson.build   | 1 -
+ 3 files changed, 10 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 927731fd..60899948 100644
+--- a/meson.build
++++ b/meson.build
+@@ -43,20 +43,12 @@ libsoup_dep = dependency('libsoup-2.4')
+ appstream_dep = dependency('appstream')
+ gio_unix_dep = dependency('gio-unix-2.0')
+ json_glib_dep = dependency('json-glib-1.0')
+-zeitgeist_dep = dependency('zeitgeist-2.0')
+ switchboard_dep = dependency('switchboard-2.0')
+ libgnome_menu_dep = dependency('libgnome-menu-3.0')
+ libhandy_dep = dependency('libhandy-0.0')
+ wingpanel_dep = dependency('wingpanel-2.0', version: '>=2.1.0')
+ posix_dep = meson.get_compiler('vala').find_library('posix')
+ 
+-unity_dep = []
+-
+-if get_option('with-unity')
+-    unity_dep = dependency('unity', version: '>=4.0.0')
+-    add_project_arguments('--define=HAVE_UNITY', language: 'vala')
+-endif
+-
+ plank_dep = dependency('plank', required: false)
+ if plank_dep.version().version_compare('>=0.10.9')
+     add_project_arguments('--define=HAS_PLANK', language: 'vala')
+diff --git a/meson_options.txt b/meson_options.txt
+index f970ad3d..9e825c1e 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -1,2 +1 @@
+-option('with-unity', type : 'boolean', value : 'true', description : 'Add Unity launcher support')
+ option('with-zeitgeist', type : 'boolean', value : 'true', description : 'Add Zeitgeist support')
+diff --git a/src/meson.build b/src/meson.build
+index 30e194bd..09cfd10f 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -78,7 +78,6 @@ dependencies = [
+     libsoup_dep,
+     appstream_dep,
+     plank_dep,
+-    unity_dep,
+     wingpanel_dep,
+     libhandy_dep,
+     posix_dep,

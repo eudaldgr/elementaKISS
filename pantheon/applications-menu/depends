@@ -1,0 +1,14 @@
+appstream
+gnome-menus
+granite
+gtk+3
+json-glib
+libgee
+libhandy
+libsoup
+meson       make
+plank
+samurai     make
+switchboard
+vala        make
+wingpanel
