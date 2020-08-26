@@ -1,0 +1,6 @@
+atk
+cairo
+gdk-pixbuf
+glib
+gtk+3
+pango
