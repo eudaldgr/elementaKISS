@@ -1,0 +1,12 @@
+bamf
+glib
+gnome-desktop
+granite
+gtk+3
+libcanberra
+libgee
+meson                   make
+mutter
+plank
+samurai                 make
+vala                    make
