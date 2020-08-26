@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+for patch in *.patch; do
+    patch -Np1 -i "$patch"
+done
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --localstatedir=/var
+
+make
+make DESTDIR="$1" install
+
+# Remove unused stuff
+rm -rf "$1/usr/share"
