@@ -1,0 +1,18 @@
+--- old/data/meson.build
++++ new/data/meson.build
+@@ -1,14 +1,8 @@
+-msgfmt = find_program('msgfmt')
+-
+ custom_target('mutter.desktop',
+   input: 'mutter.desktop.in',
+   output: 'mutter.desktop',
+   command: [
+-    msgfmt,
+-    '--desktop', '--template',
+-    '@INPUT@',
+-    '-d', join_paths(meson.source_root(), 'po'),
+-    '-o', '@OUTPUT@'
++    'cp', '@INPUT@', '@OUTPUT@'
+   ],
+   install: true,
+   install_dir: join_paths(datadir, 'applications'),

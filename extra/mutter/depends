@@ -1,0 +1,11 @@
+glib
+gnome-desktop
+graphene
+libcanberra
+libgudev
+libinput
+libxkbcommon
+libxkbfile
+meson                make
+samurai              make
+startup-notification
