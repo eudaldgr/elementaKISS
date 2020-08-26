@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --enable-gles2 \
+    --disable-gles1 \
+    --enable-kms-egl-platform \
+    --enable-gl \
+    --enable-gdk-pixbuf \
+    --enable-introspection \
+    --enable-cairo \
+    --disable-wayland-egl-platform \
+    --disable-wayland-egl-server
+
+make -j1 # fails to link cogl-gst into itself otherwise...
+make DESTDIR="$1" install
+
+# Remove unused stuff
+rm -rf "$1/usr/share/cogl"

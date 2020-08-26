@@ -1,0 +1,8 @@
+cairo
+gdk-pixbuf
+gobject-introspection
+libXcomposite
+libXrandr
+libtool
+mesa
+pango
