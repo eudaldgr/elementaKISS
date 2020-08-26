@@ -1,0 +1,8 @@
+clutter-gtk
+glib
+granite
+gtk+3
+libgee
+meson       make
+samurai     make
+vala        make
