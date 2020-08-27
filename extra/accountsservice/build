@@ -1,0 +1,23 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+for patch in *.patch; do
+    patch -p1 -i "$patch"
+done
+
+meson \
+    --prefix=/usr \
+    --libexecdir=/usr/lib/accountsservice \
+    --buildtype=plain \
+    -Dlibdir=lib \
+    -Dsystemdsystemunitdir=no \
+    -Dsystemd=false \
+    -Delogind=true \
+    -Dintrospection=true \
+    -Ddocbook=false \
+    -Dgtk_doc=false \
+    . output
+
+ninja -C output
+ninja -C output install

@@ -1,0 +1,3 @@
+https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.55.tar.xz
+patches/musl-fgetspent_r.patch
+patches/musl-wtmp.patch
