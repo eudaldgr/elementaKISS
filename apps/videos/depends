@@ -1,0 +1,7 @@
+clutter-gst
+clutter-gtk
+granite
+gstreamer
+meson       make
+samurai     make
+vala        make
