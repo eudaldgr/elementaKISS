@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+name=lightdm
+
+delgroup "$name" "$name"
+delgroup "$name"
+
+exit 0

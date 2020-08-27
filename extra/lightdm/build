@@ -1,0 +1,46 @@
+#!/bin/sh -e
+
+export CFLAGS="$CFLAGS -D_GNU_SOURCE"
+
+for patch in *.patch; do
+    patch -p1 -i "$patch"
+done
+
+./configure \
+    --prefix=/usr \
+    --sbindir=/usr/bin \
+    --libexecdir=/usr/lib/lightdm \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --disable-tests \
+    --disable-static \
+    --disable-liblightdm-qt \
+    --disable-liblightdm-qt5 \
+    --disable-gtk-doc \
+    --disable-gtk-doc-html \
+    --disable-gtk-doc-pdf \
+    --disable-nls \
+    --enable-vala \
+    --with-greeter-user=lightdm \
+    --with-greeter-session=lightdm-gtk-greeter
+
+make
+make DESTDIR="$1" install
+
+sed -i 's|\#session-wrapper=.*|session-wrapper=/etc/lightdm/Xsession|' "$1/etc/lightdm/lightdm.conf"
+sed -i 's/pam_systemd/pam_elogind/'                                    "$1/etc/pam.d/"*
+
+install -Dm644 lightdm.rules "$1/usr/share/polkit-1/rules.d/lightdm.rules"
+install -Dm755 Xsession      "$1/etc/lightdm/Xsession"
+install -Dm755 run           "$1/etc/sv/lightdm/run"
+
+mkdir -p "$1/var/lib/lightdm"
+mkdir -p "$1/var/lib/lightdm-data"
+#install -o lightdm -g lightdm -d "$1/var/lib/lightdm-data"
+
+# Remove unused stuff
+rm -rf "$1/etc/init"
+rm -rf "$1/etc/apparmor.d"
+rm -rf "$1/usr/share/man"
+rm -rf "$1/usr/share/help"
+rm -rf "$1/usr/share/gtk-doc"

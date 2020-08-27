@@ -1,0 +1,12 @@
+https://github.com/CanonicalLtd/lightdm/releases/download/1.30.0/lightdm-1.30.0.tar.xz
+files/lightdm.rules
+files/run
+files/Xsession
+patches/allow-null-passwd.patch
+patches/auto-unlock-keyring.patch
+patches/disallow-guest.patch
+patches/musl-is-linux.patch
+patches/musl-language.patch
+patches/musl-updwtmpx.patch
+patches/no-gettext.patch
+patches/no-policy.patch

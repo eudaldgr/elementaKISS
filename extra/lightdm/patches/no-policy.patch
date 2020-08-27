@@ -1,0 +1,12 @@
+--- old/data/Makefile.in
++++ new/data/Makefile.in
+@@ -853,6 +853,9 @@
+ lightdm-guest-session: $(srcdir)/apparmor/lightdm-guest-session.in
+ 	sed -e 's|@libexecdir[@]|$(libexecdir)|g' $< >$@
+ 
++org.freedesktop.DisplayManager.AccountsService.policy: $(srcdir)/org.freedesktop.DisplayManager.AccountsService.policy.in
++	cp $< $@
++
+ # AccountsService requires D-Bus interfaces to be symlinked
+ install-exec-hook:
+ 	$(MKDIR_P) $(DESTDIR)$(datadir)/accountsservice/interfaces

@@ -1,0 +1,6 @@
+glib
+libX11
+libXdmcp
+libxcb
+libxklavier
+linux-pam
