@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-sed -i "s|@@VERSION@@|$2|" -i *.pc
+sed -i "s|@@VERSION@@|$2|" -i ./*.pc
 
 for patch in *.patch; do
     patch -Np1 -i "$patch"
@@ -15,7 +15,7 @@ done
     cd -
 }
 
-install -Dm0644 *.pc -t "$1/usr/lib/pkgconfig"
+install -Dm0644 ./*.pc -t "$1/usr/lib/pkgconfig"
 
 # Remove unused stuff
-rm -rf "$1/usr/share"
+rm -rf "${1:?}/usr/share"

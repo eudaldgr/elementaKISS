@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-sed -i configure -e 's;if !($PYTHON -c "import libxslt, libxml2" 2> /dev/null);if false;'
+sed -i configure -e "s;if !(\$PYTHON -c \"import libxslt, libxml2\" 2> /dev/null);if false;"
 sed -i configure -e '/CFLAGS=/s/ \-Werror / /'
 
 ./configure \

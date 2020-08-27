@@ -12,4 +12,4 @@ make
 make DESTDIR="$1" install
 
 # Remove man files
-rm -rf "$1/usr/share"
+rm -rf "${1:?}/usr/share"

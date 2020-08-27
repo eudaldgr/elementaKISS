@@ -10,4 +10,4 @@ make
 make DESTDIR="$1" install
 
 # Remove unused stuff
-rm -rf "$1/usr/share"
+rm -rf "${1:?}/usr/share"

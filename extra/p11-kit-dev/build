@@ -12,6 +12,6 @@ ninja -C output
 ninja -C output install
 
 # Remove unused stuff
-rm -rf "$1/etc"
+rm -rf "${1:?}/etc"
 rm -rf "$1/usr/bin"
 rm -rf "$1/usr/libexec"
