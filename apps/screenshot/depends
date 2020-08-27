@@ -1,0 +1,6 @@
+gdk-pixbuf
+granite
+libcanberra
+meson       make
+samurai     make
+vala        make
