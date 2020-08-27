@@ -1,0 +1,13 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --with-xkb-base=/usr/share/X11/xkb \
+    --with-xkb-bin-base=/usr/bin \
+    --disable-static
+
+make
+make DESTDIR="$1" install
+
+# Remove unused stuff
+rm -rf "$1/usr/share/gtk-doc"
