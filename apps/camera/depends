@@ -1,0 +1,8 @@
+clutter-gst
+clutter-gtk
+granite
+gtk+3
+libcanberra
+meson       make
+samurai     make
+vala        make
