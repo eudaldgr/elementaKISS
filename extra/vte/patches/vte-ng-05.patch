@@ -1,0 +1,27 @@
+--- old/src/vte/vteterminal.h
++++ new/src/vte/vteterminal.h
+@@ -200,6 +200,9 @@
+ _VTE_PUBLIC
+ void vte_terminal_select_text(VteTerminal *terminal, long start_col, long start_row,
+ 			      long end_col, long end_row) _VTE_GNUC_NONNULL(1);
++_VTE_PUBLIC
++char *
++vte_terminal_get_selection(VteTerminal *terminal) _VTE_GNUC_NONNULL(1);
+ /* By-word selection */
+ _VTE_PUBLIC
+ void vte_terminal_set_word_char_exceptions(VteTerminal *terminal,
+--- old/src/vtegtk.cc
++++ new/src/vtegtk.cc
+@@ -2637,6 +2637,12 @@
+ 
+         IMPL(terminal)->select_text(start_col, start_row, end_col, end_row);
+ }
++char *
++vte_terminal_get_selection(VteTerminal *terminal)
++{
++	g_return_val_if_fail(VTE_IS_TERMINAL(terminal), NULL);
++	return g_strdup (IMPL(terminal)->m_selection[VTE_SELECTION_PRIMARY]->str);
++}
+ /**
+  * vte_terminal_get_cursor_position:
+  * @terminal: a #VteTerminal

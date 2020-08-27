@@ -1,0 +1,10 @@
+atk
+cairo
+fribidi
+gdk-pixbuf
+glib
+gnutls
+gtk+3
+icu
+pango
+pcre2

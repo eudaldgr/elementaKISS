@@ -1,0 +1,8 @@
+https://download.gnome.org/sources/vte/0.60/vte-0.60.3.tar.xz
+patches/fix-W_EXITCODE.patch
+patches/no-setenv-after-fork.patch
+patches/vte-ng-01.patch
+patches/vte-ng-02.patch
+patches/vte-ng-03.patch
+patches/vte-ng-04.patch
+patches/vte-ng-05.patch

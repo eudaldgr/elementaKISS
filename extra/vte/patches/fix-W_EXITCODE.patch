@@ -1,0 +1,13 @@
+--- old/src/widget.cc
++++ new/src/widget.cc
+@@ -29,6 +29,10 @@
+ #include "vteptyinternal.hh"
+ #include "debug.h"
+ 
++#ifndef W_EXITCODE
++#define W_EXITCODE(ret, sig)  ((ret) << 8 | (sig))
++#endif
++
+ using namespace std::literals;
+ 
+ namespace vte {
