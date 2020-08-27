@@ -1,0 +1,12 @@
+accountsservice
+gdk-pixbuf
+gnome-settings-daemon
+granite
+gtk+3
+libX11
+lightdm
+meson                 make
+mutter
+samurai               make
+vala                  make
+wingpanel
