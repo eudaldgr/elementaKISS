@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --enable-udev \
+    --enable-introspection
+
+make
+make DESTDIR="$1" install
+
+# Remove unused stuff
+rm -rf "$1/usr/share/gtk-doc"

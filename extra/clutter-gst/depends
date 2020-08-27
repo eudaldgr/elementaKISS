@@ -1,0 +1,8 @@
+clutter
+cogl
+gdk-pixbuf
+glib
+gst-plugins-base
+gstreamer
+libX11
+libgudev
