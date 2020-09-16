@@ -1,7 +1,7 @@
 elogind
 eudev
 glib
-lcms2
+lcms
 libcap
 libffi
 libgudev
