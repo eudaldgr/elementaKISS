@@ -7,5 +7,6 @@ gnome-menus
 gtk+3
 libX11
 libXi
+libxml2     make
 pango
 vala        make
