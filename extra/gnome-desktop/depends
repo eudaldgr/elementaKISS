@@ -2,4 +2,5 @@ gobject-introspection
 gsettings-desktop-schemas
 gtk+3
 iso-codes                 make
+libseccomp                make
 xkeyboard-config          make
