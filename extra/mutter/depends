@@ -1,11 +1,12 @@
 glib
 gnome-desktop
+gnome-settings-daemon make
 graphene
 libcanberra
 libgudev
 libinput
 libxkbcommon
 libxkbfile
-meson                make
-samurai              make
+meson                 make
+samurai               make
 startup-notification
