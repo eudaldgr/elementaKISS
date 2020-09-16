@@ -1,3 +1,4 @@
 gobject-introspection
 gsettings-desktop-schemas
 gtk+3
+xkeyboard-config          make
