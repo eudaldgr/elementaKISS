@@ -2,6 +2,9 @@ glib
 gnome-desktop
 gnome-settings-daemon make
 graphene
+libICE
+libSM
+libXtst
 libcanberra
 libgudev
 libinput
@@ -10,3 +13,4 @@ libxkbfile
 meson                 make
 samurai               make
 startup-notification
+xorg-server
