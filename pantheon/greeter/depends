@@ -1,4 +1,5 @@
 accountsservice
+desktop-file-utils    make
 gdk-pixbuf
 gnome-settings-daemon
 granite
