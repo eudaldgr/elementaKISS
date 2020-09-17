@@ -1,4 +1,5 @@
 glib
+libXslt make
 libsoup
 libxml2
 lmdb
