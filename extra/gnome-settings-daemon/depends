@@ -1,5 +1,6 @@
 alsa-lib
 colord
+cups
 gcr
 geoclue
 geocode-glib
