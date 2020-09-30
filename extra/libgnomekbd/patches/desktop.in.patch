@@ -1,0 +1,15 @@
+--- a/libgnomekbd/Makefile.in
++++ b/libgnomekbd/Makefile.in
+@@ -1246,10 +1246,10 @@
+ @GSETTINGS_RULES@
+ 
+ %.desktop.in : %.desktop.in.in
+-	$(AM_V_GEN) sed -e 's|@VERSION[@]|$(VERSION)|g' $< > $@
++	cp $< $@
+ 
+ %.desktop : %.desktop.in
+-	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
++	cp $< $@
+ 
+ gkbd-indicator-marshal.h: gkbd-indicator-marshal.list
+ 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=gkbd_indicator $(srcdir)/gkbd-indicator-marshal.list --header > $@

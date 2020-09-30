@@ -1,0 +1,11 @@
+gobject-introspection
+gtk+3
+libXau
+libXcomposite
+libXcursor
+libXdmcp
+libXext
+libXi
+libxcb
+libxklavier
+libxml2

@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+patch -p1 < desktop.in.patch
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --disable-nls \
+    --disable-static \
+    --enable-tests \
+    --enable-introspection
+
+make
+make DESTDIR="$1" install
