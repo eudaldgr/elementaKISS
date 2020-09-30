@@ -1,0 +1,8 @@
+granite
+gtk+3
+libcanberra
+meson       make
+pkgconf     make
+pulseaudio
+switchboard
+vala        make
