@@ -1,0 +1,18 @@
+#!/bin/sh -e
+
+sed -i 's|@VERSION@|$2|g' cldr-emoji-annotation.pc.in
+
+aclocal -I m4
+autoheader -f
+autoconf -f
+automake -a -c -f
+
+./configure \
+    --prefix=/usr
+
+make
+make DESTDIR="$1" install
+
+# TODO(leo): pkgconfig file has weird version so a pc: is not made
+mkdir -p "$1/usr/lib"
+mv "$1/usr/share/pkgconfig" "$1/usr/lib"
