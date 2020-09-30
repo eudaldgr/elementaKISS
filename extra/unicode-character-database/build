@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+for _f in UCD Unihan; do
+    mv "$_f.zip?no-extract" "$_f.zip"
+    install -Dm644 "$_f.zip" "$1/usr/share/unicode/$_f.zip"
+    unzip "$_f.zip" -d "$1/usr/share/unicode"
+done
+
+for _f in sequences test zwj-sequences; do
+    install -Dm644 "emoji-$_f.txt" "$1/usr/share/unicode/emoji/emoji-$_f.txt"
+done
