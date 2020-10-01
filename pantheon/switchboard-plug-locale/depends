@@ -1,0 +1,9 @@
+accountsservice
+gnome-desktop
+granite
+gtk+3
+ibus
+meson           make
+polkit-elogind
+switchboard
+vala            make
