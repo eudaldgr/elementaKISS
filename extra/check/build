@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+autoreconf -vfi
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --mandir=/usr/share/man \
+    --localstatedir=/var \
+    --disable-build-docs
+
+make
+make DESTDIR="$1" install
+
+rm -rf "$1/usr/share/doc"
