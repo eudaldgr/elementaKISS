@@ -1,0 +1,6 @@
+granite
+gtk+3
+libgtop
+meson       make
+switchboard
+vala        make
