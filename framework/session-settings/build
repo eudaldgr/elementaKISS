@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+install -D applications/*   -t "$1/usr/share/pantheon"
+install -D autostart/*      -t "$1/etc/xdg/autostart"
+install -D gnome-session/*  -t "$1/usr/share/gnome-session/sessions"
+install -D xsessions/*      -t "$1/usr/share/xsessions"
+
+install -D Pantheon         -t "$1/etc/X11/Sessions"
+install -D pantheon-session -t "$1/usr/bin"
