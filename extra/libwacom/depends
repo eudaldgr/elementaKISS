@@ -1,0 +1,5 @@
+glib
+libgudev
+librsvg  make
+libxml2
+meson
