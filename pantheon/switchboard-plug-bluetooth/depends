@@ -1,0 +1,5 @@
+granite
+gtk+3
+meson       make
+switchboard
+vala        make
