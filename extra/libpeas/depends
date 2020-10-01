@@ -1,0 +1,7 @@
+glib
+gobject-introspection
+gtk+3
+meson                 make
+python-gobject
+samurai               make
+vala                  make
