@@ -1,0 +1,7 @@
+gdk-pixbuf
+glib
+granite
+gtk+3
+meson      make
+vala       make
+wingpanel
