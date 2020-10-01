@@ -1,0 +1,5 @@
+libXext
+libXi
+libXinerama
+libXrandr
+xorg-server make
