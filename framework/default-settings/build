@@ -1,0 +1,18 @@
+#!/bin/sh -e
+
+install -D accountsservice/io.elementary.pantheon.AccountsService.xml    -t "$1/usr/share/dbus-1/interfaces"
+install -D accountsservice/io.elementary.pantheon.AccountsService.policy -t "$1/usr/share/polkit-1/actions"
+install -D appcenter.blacklist                                           -t "$1/etc/io.elementary.appcenter"
+install -D plank/dock1/launchers/*                                       -t "$1/etc/skel/.config/plank"
+install -D profile.d/*                                                   -t "$1/etc/profile.d"
+install -D sessioninstaller.desktop                                      -t "$1/usr/share/applications"
+install -D settings.ini                                                  -t "$1/etc/gtk-3.0"
+install -D sudoers.d/*                                                   -t "$1/etc/sudoers.d"
+install -D overrides/*.gschema.override                                  -t "$1/usr/share/glib-2.0/schemas"
+install -D .inputrc                                                      -t "$1/etc/skel"
+install -D default-testpage.pdf                                          -t "$1/usr/share/cups/data"
+install -D plymouth/elementary/*                                         -t "$1/usr/share/plymouth/themes/elementary"
+install -D plymouth/ubuntu-text.plymouth                                 -t "$1/usr/share/plymouth/themes"
+
+mkdir -p "$1/usr/share/accountsservice/interfaces"
+ln -sf /usr/share/dbus-1/interfaces/io.elementary.pantheon.AccountsService.xml "$1/usr/share/accountsservice/interfaces/io.elementary.pantheon.AccountsService.xml"
