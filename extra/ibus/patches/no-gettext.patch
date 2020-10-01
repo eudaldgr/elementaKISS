@@ -1,0 +1,13 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -131,10 +131,6 @@
+ AC_PROG_INSTALL
+ AC_PROG_MAKE_SET
+ 
+-# i18n stuff
+-AM_GNU_GETTEXT_VERSION([0.19.8])
+-AM_GNU_GETTEXT([external])
+-
+ # Define PACKAGE_VERSION_* variables.
+ AM_DISABLE_STATIC
+ AC_ISC_POSIX

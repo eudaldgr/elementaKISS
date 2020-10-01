@@ -1,0 +1,33 @@
+#!/bin/sh -e
+
+patch -p1 < 0001-Use-more-portable-call-to-mktemp.patch
+patch -p1 < no-gtk-doc.patch
+patch -p1 < no-gettext.patch
+
+touch ChangeLog po/Makefile.in.in
+
+sed -i "/^bash_completion/d" tools/Makefile.am
+
+autoreconf -vif -Wno-portability
+
+printf 'all:\n\ttrue\ninstall:\n\ttrue\nclean:\n\ttrue\n' > po/Makefile
+
+./configure \
+    --prefix=/usr \
+    --libexecdir=/usr/lib/ibus \
+    --sysconfdir=/etc \
+    --disable-tests \
+    --disable-nls \
+    --enable-vala \
+    --disable-gtk2 \
+    --disable-setup \
+    --disable-dconf \
+    --disable-wayland \
+    --disable-memconf \
+    --disable-ui \
+    --disable-gtk-doc \
+    --enable-emoji-dict \
+    --with-ucd-dir=/usr/share/unicode/
+
+make
+make DESTDIR="$1" install

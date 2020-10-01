@@ -1,0 +1,8 @@
+automake                   make
+autoconf                   make
+cldr-emoji-annotation      make
+dbus
+file                       make
+gtk+3                      make
+unicode-character-database make
+vala                       make

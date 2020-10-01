@@ -1,0 +1,4 @@
+https://github.com/ibus/ibus/archive/1.5.22.tar.gz
+patches/0001-Use-more-portable-call-to-mktemp.patch
+patches/no-gtk-doc.patch
+patches/no-gettext.patch

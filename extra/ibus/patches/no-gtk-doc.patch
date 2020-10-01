@@ -1,0 +1,49 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -339,7 +339,6 @@
+ VAPIGEN_CHECK([0.16])
+ 
+ # Check for gtk-doc.
+-GTK_DOC_CHECK(1.9)
+ if test x"$enable_gtk_doc" = x"no"; then
+     enable_gtk_doc="no (disabled, use --enable-gtk-doc to enable)"
+ fi
+--- a/docs/reference/ibus/Makefile.am
++++ b/docs/reference/ibus/Makefile.am
+@@ -114,27 +114,15 @@
+ 	$(top_builddir)/src/libibus-@IBUS_API_VERSION@.la \
+ 	$(NULL)
+ 
+-# This includes the standard gtk-doc make rules, copied by gtkdocize.
+-include $(top_srcdir)/gtk-doc.make
+-
+ # Other files to distribute
+ # e.g. EXTRA_DIST += version.xml.in
+-EXTRA_DIST += trim.sed
++EXTRA_DIST = trim.sed
+ 
+ # Files not to distribute
+ # for --rebuild-types in $(SCAN_OPTIONS), e.g. $(DOC_MODULE).types
+ # for --rebuild-sections in $(SCAN_OPTIONS) e.g. $(DOC_MODULE)-sections.txt
+ DISTCLEANFILES = $(DOC_MODULE)-sections.txt
+ 
+-# Comment this out if you want 'make check' to test you doc status
+-# and run some sanity checks
+-if ENABLE_GTK_DOC
+-TESTS_ENVIRONMENT = cd $(srcdir) && \
+-  DOC_MODULE=$(DOC_MODULE) DOC_MAIN_SGML_FILE=$(DOC_MAIN_SGML_FILE) \
+-  SRCDIR=$(abs_srcdir) BUILDDIR=$(abs_builddir)
+-#TESTS = $(GTKDOC_CHECK)
+-endif
+-
+ trim-build.stamp: scan-build.stamp
+ 	$(AM_V_GEN) \
+ 	    $(SED) -f $(srcdir)/trim.sed -i.bak \
+@@ -147,6 +135,6 @@
+ # clean-local:
+ # 	rm -rf tmpl ${DOC_MODULE)
+ 
+-CLEANFILES+= *.stamp
++CLEANFILES= *.stamp
+ 
+ -include $(top_srcdir)/git.mk
