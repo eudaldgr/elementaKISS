@@ -1,0 +1,5 @@
+geoclue
+gtk+3
+meson   make
+samurai make
+vala    make
