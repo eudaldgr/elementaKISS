@@ -1,0 +1,7 @@
+granite
+gtk+3
+libhandy
+meson    make
+pkgconf  make
+samurai  make
+vala     make
