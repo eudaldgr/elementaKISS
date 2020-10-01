@@ -1,0 +1,10 @@
+granite
+gtk+3
+ibus
+libgnomekbd
+libhandy
+libxklavier
+libxml2
+meson       make
+switchboard
+vala        make
