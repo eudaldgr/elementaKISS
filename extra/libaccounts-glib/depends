@@ -1,0 +1,5 @@
+check                 make
+gobject-introspection make
+meson                 make
+python-gobject        make
+vala                  make
