@@ -1,0 +1,6 @@
+glib
+gobject-introspection make
+libXslt               make
+libgcrypt
+meson                 make
+vala                  make
