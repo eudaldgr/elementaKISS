@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+udevscriptdir=/lib/udev ./configure \
+	--prefix=/usr \
+	--with-drivers=all \
+	--disable-static \
+	--disable-rpath
+make
+make DESTDIR="$1" install
+rm -f "$1"/usr/lib/libgphoto2/*/*.a "$1"/usr/lib/*.a
+
+install -m755 -d "$1/lib/udev/rules.d"
+LD_LIBRARY_PATH="$1/usr/lib${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH" \
+	CAMLIBS="$1/usr/lib/libgphoto2/$2" \
+	"$1/usr/lib/libgphoto2/print-camera-list" udev-rules version 136 group camera mode 0660 > "$1/lib/udev/rules.d/54-gphoto.rules"
