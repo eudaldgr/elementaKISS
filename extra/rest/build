@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --disable-static \
+    --enable-introspection \
+    --without-ca-certificates \
+    --without-gnome
+
+make
+make DESTDIR="$1" install
