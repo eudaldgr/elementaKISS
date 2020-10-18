@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+./autogen.sh
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --mandir=/usr/share/man \
+    --localstatedir=/var \
+    --disable-static \
+    --libexecdir=/usr/lib
+
+make
+make DESTDIR="$1" install
