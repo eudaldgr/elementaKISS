@@ -1,0 +1,9 @@
+accountsservice
+dbus
+geoclue
+glib
+gobject-introspection
+granite
+meson                 make
+samurai               make
+vala                  make
