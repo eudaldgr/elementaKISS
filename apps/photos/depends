@@ -1,0 +1,24 @@
+desktop-file-utils
+geocode-glib
+gexiv2
+glib
+granite
+gst-plugins-base
+gstreamer
+gtk+3
+json-glib
+libaccounts-glib
+libexif
+libgee
+libgphoto2
+libgudev
+libraw
+libsoup
+libwebp
+libxml2
+meson              make
+rest
+samurai            make
+sqlite
+vala               make
+webkit2gtk

@@ -1,0 +1,17 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+sed -i 's/viewer_desktop_file = //g' data/meson.build
+sed -i 's/app_desktop_file = //g'    data/meson.build
+sed -i 's/appstream_file = //g'      data/meson.build
+
+meson \
+    --prefix=/usr \
+    -Dplugins=true \
+    -Ddocumentation=false \
+    -Dlibunity=false \
+    . output
+
+ninja -C output
+ninja -C output install
