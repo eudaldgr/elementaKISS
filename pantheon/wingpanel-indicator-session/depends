@@ -1,0 +1,9 @@
+accountsservice
+glib
+granite
+gtk+3
+libhandy
+meson           make
+samurai         make
+vala            make
+wingpanel
