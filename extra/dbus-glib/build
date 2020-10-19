@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --enable-static=no \
+    --enable-bash-completion=no
+
+make
+make DESTDIR="$1" install
