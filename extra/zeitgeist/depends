@@ -1,0 +1,9 @@
+autoconf              make
+automake              make
+glib
+gobject-introspection
+gtk+3
+json-glib
+sqlite
+telepathy-glib
+xapian-core

@@ -1,0 +1,23 @@
+#!/bin/sh -e
+
+patch -p1 < no-gettext.patch
+
+NOCONFIGURE=1 ./autogen.sh
+
+touch po/Makefile.in.in
+printf 'all:\n\ttrue\ninstall:\n\ttrue\nclean:\n\ttrue\n' > po/Makefile
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --libexecdir=/usr/lib \
+    --without-dee-icu \
+    --disable-nls
+
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+
+make
+make DESTDIR="$1" install
+
+rm -rf "$1/usr/lib/systemd"
