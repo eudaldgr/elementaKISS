@@ -8,7 +8,7 @@ done
 
 meson \
     --prefix=/usr \
-    -Dwith-zeitgeist=false \
+    -Dwith-zeitgeist=true \
     . output
 
 ninja -C output
