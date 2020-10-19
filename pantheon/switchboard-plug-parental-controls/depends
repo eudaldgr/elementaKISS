@@ -1,0 +1,11 @@
+accountsservice
+dbus
+glib
+granite
+gtk+3
+libhandy
+meson           make
+polkit-elogind
+samurai         make
+switchboard
+vala            make
