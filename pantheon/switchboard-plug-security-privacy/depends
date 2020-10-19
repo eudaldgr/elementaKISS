@@ -1,0 +1,8 @@
+granite
+gtk+3
+meson          make
+polkit-elogind
+samurai        make
+switchboard
+vala           make
+zeitgeist
