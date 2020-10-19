@@ -9,7 +9,7 @@ sed -i 's/diff -c/diff/g' telepathy-glib/abi.am telepathy-glib/Makefile.in
     --sysconfdir=/etc \
     --mandir=/usr/share/man \
     --localstatedir=/var \
-    --enable-vala-keybindings
+    --enable-vala-bindings
 
 make
 make DESTDIR="$1" install
