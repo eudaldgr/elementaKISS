@@ -1,0 +1,70 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+pkg-config --exists libudev || {
+    printf 'udev (or libudev-zero) is required\n'
+    exit 1
+}
+
+for patch in *.patch; do
+    patch -p1 < "$patch"
+done
+
+sed -i '/^intltool/d' \
+    meson.build
+sed -i 's/printf.h/stdio.h/' \
+    shared/systemd/src/basic/stdio-util.h
+sed -i 's/ether.h/if_ether.h/' \
+   clients/cli/connections.c 
+sed -i 's/ether.h/if_ether.h/' \
+    libnm-core/nm-utils.c
+sed -i 's/ether.h/if_ether.h/' \
+    src/systemd/src/libsystemd-network/network-internal.c
+
+sed -i 's/if_arp.h/if.h/' \
+    src/devices/nm-device.c
+sed -i '/#include <limits.h>/a #include <asm/types.h>' \
+    src/nm-manager.c
+sed -i '/#include "nm-linux-platform.h"/a #include "wpan/nm-wpan-utils.h"' \
+    src/platform/nm-linux-platform.c
+sed -i 's/if_arp.h/if.h/' \
+    src/platform/nm-linux-platform.c
+sed -i 's/if_arp.h/if.h/' \
+    src/systemd/src/libsystemd-network/sd-dhcp6-client.c
+sed -i '/#include "nm-core-internal.h"/a #include <linux/if_ether.h>' \
+    src/devices/nm-device-bridge.c
+sed -i '/#include <linux\/pkt_sched.h>/a #include <netinet\/if_ether.h>' \
+    src/NetworkManagerUtils.c
+sed -i '/RTLD_DEEPBIND/d' \
+    shared/nm-glib-aux/nm-json-aux.c
+
+kiss l elogind || logind=no
+kiss l dhcpcd  || dhcpcd=false
+kiss l gnutls  || crypto=nss
+kiss l eiwd    || eiwd=false
+
+meson \
+    --prefix=/usr \
+    --buildtype=release \
+    -Dsession_tracking_consolekit=false \
+    -Dsystemdsystemunitdir=no \
+    -Dsystemd_journal=false \
+    -Dintrospection=false \
+    -Dmodify_system=true \
+    -Dmodem_manager=false \
+    -Dlibaudit=no \
+    -Dselinux=false \
+    -Dnmtui=false \
+    -Dtests=no \
+    -Dqt=false \
+    -Dhcpcd="${dhcpcd:-true}" \
+    -Diwd="${eiwd:-true}" \
+    -Dresolvconf="${eiwd:-true}" \
+    -Dsession_tracking="${logind:-elogind}" \
+    . build
+
+ninja -C build
+ninja -C build install
+
+install -Dm644 networkmanager.conf "$1/etc/NetworkManager/NetworkManager.conf"
