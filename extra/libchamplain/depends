@@ -1,0 +1,10 @@
+cairo
+clutter
+clutter-gtk
+glib
+gtk+3
+libsoup
+meson       make
+samurai     make
+sqlite
+vala        make
