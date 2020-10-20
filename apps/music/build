@@ -1,0 +1,17 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+sed -i 's/desktop_file = //g' data/meson.build
+sed -i 's/appdata_file = //g' data/meson.build
+
+sed -i 's/int\[10\] freqs/int freqs\[10\]/g' core/GStreamer/Equalizer.vala
+
+meson \
+    --prefix=/usr \
+    -Dplugins=audioplayer,cdrom,lastfm \
+    -Ddocumentation=false \
+    . output
+
+ninja -C output
+ninja -C output install

@@ -1,0 +1,21 @@
+clutter-gtk
+dbus-glib
+glib
+granite
+gst-plugins-base
+gstreamer
+gtk+3
+libaccounts-glib
+libgda
+libgee
+libhandy
+libnotify
+libpeas
+libsignon-glib
+libsoup
+libxml2
+meson            make
+samurai          make
+taglib
+vala             make
+zeitgeist
