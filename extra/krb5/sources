@@ -1,0 +1,4 @@
+https://kerberos.org/dist/krb5/1.18/krb5-1.18.2.tar.gz
+patches/mit-krb5_krb5-config_LDFLAGS.patch
+patches/patch_preauth-c.patch
+patches/patch_preauth-h.patch

@@ -1,0 +1,19 @@
+#!/bin/sh -e
+
+for patch in ./*.patch; do
+    patch -p1 < "$patch"
+done
+
+cd ./src
+
+./configure \
+    WARN_CFLAGS= \
+    --prefix="/usr" \
+    --enable-shared \
+    --disable-static \
+    --disable-nls \
+    --disable-rpath \
+    --without-tcl
+
+make -j1
+make DESTDIR="$1" install

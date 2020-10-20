@@ -1,0 +1,4 @@
+c6e4c9ec1a98141c3f5d66ddf1a135549050c9fab4e9a4620ee9b22085873ae0  krb5-1.18.2.tar.gz
+191d8ab3133dd9c234c053aba2737e071ce8c938aa692228e395376df52c2708  mit-krb5_krb5-config_LDFLAGS.patch
+989f5edcf37727aa4235051d7fcac35a139047b0c70cb85b1332d42e357492b7  patch_preauth-c.patch
+f4df5a9360d647a499f3c71e96ff547c7dceaa9b85d32824b0fbdddc82fcdb77  patch_preauth-h.patch
