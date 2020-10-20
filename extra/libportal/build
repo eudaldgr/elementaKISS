@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+patch -p1 < no-gtk-doc.patch
+
+meson \
+    --prefix=/usr \
+    -Dbuild-portal-test=false \
+    -Dgtk_doc=false \
+    . output
+
+ninja -C output
+ninja -C output install
