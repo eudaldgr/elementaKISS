@@ -1,0 +1,12 @@
+evolution-data-server
+folks
+glib
+granite
+gtk+3
+libgee
+libhandy
+meson                 make
+samurai               make
+sqlite
+vala                  make
+webkit2gtk
