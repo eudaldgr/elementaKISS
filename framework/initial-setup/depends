@@ -1,0 +1,11 @@
+accountsservice
+desktop-file-utils
+glib
+granite
+gtk+3
+libgnomekbd
+libpwquality
+libxml2
+meson                                      make
+samurai                                    make
+vala                                       make
