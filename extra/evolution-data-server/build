@@ -1,0 +1,33 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+export CFLAGS="$CFLAGS -I/usr/include/gnu-libiconv"
+
+sed -i '/GETTEXT/d'  CMakeLists.txt
+sed -i '/Intltool/d' CMakeLists.txt
+sed -i '/(po)/d'     CMakeLists.txt
+sed -i 's/_//g'      data/*gschema*
+
+#rm -rf cmake/modules/FindIntltool.cmake po
+
+patch -p1 < remove-intltool.patch
+
+cmake -B build \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+    -DLIBEXEC_INSTALL_DIR=/usr/bin \
+    -DSYSCONF_INSTALL_DIR=/etc \
+    -DCMAKE_BUILD_TYPE=None \
+    -DWITH_OPENLDAP=OFF \
+    -DWITH_PHONENUMBER=OFF \
+    -DENABLE_GOA=OFF \
+    -DENABLE_GOOGLE=OFF \
+    -DENABLE_UOA=OFF \
+    -DENABLE_INTROSPECTION=ON \
+    -DENABLE_VALA_BINDINGS=ON \
+    -DWITH_SYSTEMUSERUNITDIR=no \
+    -DWITH_LIBDB=OFF
+
+cmake --build   build
+cmake --install build

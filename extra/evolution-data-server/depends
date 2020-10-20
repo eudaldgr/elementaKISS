@@ -1,0 +1,15 @@
+cmake       make
+gcr
+glib
+gtk+3
+icu
+krb5
+libcanberra
+libical
+libsecret
+libsoup
+libxml2
+nss
+sqlite
+vala        make
+webkit2gtk
