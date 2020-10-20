@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+install -Dm644 io.elementary.contractor.file-roller-extract-here.contract -t "$1/usr/share/contractor/"
+install -Dm644 io.elementary.contractor.file-roller-compress.contract     -t "$1/usr/share/contractor/"
