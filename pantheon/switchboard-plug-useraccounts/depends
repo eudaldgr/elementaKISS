@@ -1,0 +1,12 @@
+accountsservice
+glib
+gnome-desktop
+granite
+gtk+3
+libhandy
+libpwquality
+meson           make
+polkit-elogind
+samurai         make
+switchboard
+vala            make
