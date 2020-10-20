@@ -1,0 +1,22 @@
+--- a/data/meson.build
++++ b/data/meson.build
+@@ -32,7 +32,8 @@
+     configuration: config_data
+ )
+ 
+-desktop_file = i18n.merge_file(
++i18n.merge_file(
++    'desktop',
+     input: desktop_in_file,
+     output: 'io.elementary.code.desktop',
+     po_dir: join_paths(meson.source_root (), 'po', 'extra'),
+@@ -42,7 +43,8 @@
+ )
+ 
+ # Translate the AppData file
+-appstream_file = i18n.merge_file(
++i18n.merge_file(
++    'appdata',
+     input: 'io.elementary.code.appdata.xml.in',
+     output: '@BASENAME@',
+     po_dir: join_paths(meson.source_root (), 'po', 'extra'),

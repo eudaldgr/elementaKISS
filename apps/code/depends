@@ -1,0 +1,14 @@
+editorconfig
+granite
+gtksourceview
+gtkspell
+libgee
+libgit2-glib
+libhandy
+libpeas
+libsoup
+meson         make
+samurai       make
+vala          make
+vte
+zeitgeist
