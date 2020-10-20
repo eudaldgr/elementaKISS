@@ -1,0 +1,11 @@
+granite
+gtk+3
+libX11
+libXi
+libgudev
+libwacom
+meson            make
+samurai          make
+switchboard
+vala             make
+xf86-input-wacom

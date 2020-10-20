@@ -1,0 +1,33 @@
+--- a/src/Backend/DeviceManager.vala
++++ b/src/Backend/DeviceManager.vala
+@@ -25,11 +25,7 @@
+     private static GLib.Once<DeviceManager> instance;
+     public static unowned DeviceManager get_default () {
+         return instance.once (() => {
+-            if (Utils.is_wayland ()) {
+-                return new DeviceManagerWayland ();
+-            } else {
+-                return new DeviceManagerX11 ();
+-            }
++            return new DeviceManagerX11 ();
+         });
+     }
+ 
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -1,7 +1,6 @@
+ plug_files = files(
+     'Backend/Device.vala',
+     'Backend/DeviceManager.vala',
+-    'Backend/DeviceManagerWayland.vala',
+     'Backend/DeviceManagerX11.vala',
+     'Backend/WacomDevice.vala',
+     'Backend/WacomTool.vala',
+@@ -29,7 +28,6 @@
+         dependency('libwacom'),
+         dependency('gudev-1.0'),
+         dependency('gdk-x11-3.0'),
+-        dependency('gdk-wayland-3.0'),
+         dependency('x11'),
+         dependency('xi'),
+         switchboard_dep
