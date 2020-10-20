@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+sed -e '/^SUBDIRS/s/tests//' -i signon.pro
+sed -e "/include(\s*doc\/doc.pri\s*)/d" \
+    -i signon.pro lib/SignOn/SignOn.pro lib/plugins/plugins.pro
+
+patch -p1 < busybox-incompatibility.patch
+
+qmake \
+    PREFIX=/usr \
+    LIBDIR=/usr/lib
+
+make
+make INSTALL_ROOT="$1" install
