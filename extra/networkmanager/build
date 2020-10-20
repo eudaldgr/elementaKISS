@@ -50,7 +50,7 @@ meson \
     -Dsession_tracking_consolekit=false \
     -Dsystemdsystemunitdir=no \
     -Dsystemd_journal=false \
-    -Dintrospection=false \
+    -Dintrospection=true \
     -Dmodify_system=true \
     -Dmodem_manager=false \
     -Dlibaudit=no \
