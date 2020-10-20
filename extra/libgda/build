@@ -1,0 +1,51 @@
+#!/bin/sh -e
+
+patch -p1 < no-gettext.patch
+patch -p1 < no-gtk-doc.patch
+patch -p1 < fix-xml.patch
+
+sed -i 's/AM_ICONV//g' m4/mdbtools.m4
+
+sed -i '/GETTEXT/d'        libgda/gda-init.c
+sed -i 's/LC_CTYPE, //g'   libgda/gda-init.c
+sed -i 's/LC_NUMERIC, //g' libgda/gda-init.c
+sed -i 's/LC_ALL, //g'     tools/gda-sql.c
+
+sed -i '/YELP/d' tools/help/Makefile.am
+
+autoreconf -vif
+
+touch po/Makefile.in.in
+printf 'all:\n\ttrue\ninstall:\n\ttrue\nclean:\n\ttrue\n' > po/Makefile
+
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--disable-static \
+	--without-oracle \
+	--disable-crypto \
+	--disable-default-binary \
+	--enable-introspection \
+	--without-ui \
+	--without-bdb \
+	--without-ldap \
+	--without-mysql \
+	--without-postgres \
+	--without-mdb \
+	--without-java \
+	--without-goocanvas \
+	--without-help \
+	--without-libsoup \
+	--without-gtksourceview \
+	--enable-vala \
+	--enable-system-sqlite \
+	--disable-json \
+	--disable-dependency-tracking
+
+find . -type f -print0 | xargs -0 sed -i 's|#include <glib/gi18n-lib.h>||g'
+find . -type f -name "*.c" -print0 | xargs -0 sed -i 's|_(|(|g'
+find . -type f -name "*.c" -print0 | xargs -0 sed -i 's|_ (| (|g'
+find . -type f -name "*.c" -print0 | xargs -0 sed -i 's|GETTEXT_PACKAGE|NULL|g'
+
+make
+make DESTDIR="$1" install

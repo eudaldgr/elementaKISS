@@ -1,0 +1,36 @@
+--- a/providers/sqlite/Makefile.am
++++ b/providers/sqlite/Makefile.am
+@@ -34,7 +34,8 @@
+ 	sqlite_specs_create_view.xml.in \
+ 	sqlite_specs_drop_view.xml.in
+ 
+-@INTLTOOL_XML_RULE@
++%.xml:    %.xml.in;
++	cp $< $@
+ 
+ xml_DATA = $(xml_in_files:.xml.in=.xml)
+ 
+--- a/providers/skel-implementation/capi/Makefile.am
++++ b/providers/skel-implementation/capi/Makefile.am
+@@ -64,7 +64,8 @@
+ 	capi_specs_dsn.xml.in \
+ 	capi_specs_create_table.xml.in 
+ 
+-@INTLTOOL_XML_RULE@
++%.xml:    %.xml.in;
++	cp $< $@
+ 
+ #xml_DATA = $(xml_in_files:.xml.in=.xml) 
+ noinst_DATA = $(xml_in_files:.xml.in=.xml)
+--- a/providers/skel-implementation/models/Makefile.am
++++ b/providers/skel-implementation/models/Makefile.am
+@@ -24,7 +24,8 @@
+ xmldir   = $(datadir)/libgda-5.0
+ xml_in_files = models_specs_dsn.xml.in
+ 
+-@INTLTOOL_XML_RULE@
++%.xml:    %.xml.in;
++	cp $< $@
+ 
+ #xml_DATA = $(xml_in_files:.xml.in=.xml)
+ noinst_DATA = $(xml_in_files:.xml.in=.xml)

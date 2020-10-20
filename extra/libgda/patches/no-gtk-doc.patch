@@ -1,0 +1,57 @@
+--- a/doc/C/Makefile.am
++++ b/doc/C/Makefile.am
+@@ -75,10 +75,9 @@
+ # Extra options to supply to gtkdoc-fixref
+ FIXXREF_OPTIONS=
+ 
+-include $(top_srcdir)/gtk-doc.make
+ 
+ # Other files to distribute
+-EXTRA_DIST += examples/full_example.c installation.xml limitations.xml migration.xml migration2.xml migration3.xml \
++EXTRA_DIST = examples/full_example.c installation.xml limitations.xml migration.xml migration2.xml migration3.xml \
+ 	server-operation.xml gettingstarted.xml abstraction.xml virtual.xml virtual-notice.xml store-meta-type.xml \
+ 	prov-writing-virtual-methods.xml prov-writing-recordsets.xml prov-writing-blobs.xml prov-writing-parser.xml prov-writing-assembly.xml \
+ 	packaging.xml packaging_ui.xml i_s_doc.xml howto.xml gda-sql-manual.xml data_validation.xml data_select.xml \
+@@ -96,8 +95,8 @@
+ # for --rebuild-sections in $(SCAN_OPTIONS) e.g. $(DOC_MODULE)-sections.txt
+ DISTCLEANFILES = $(DOC_MODULE)-doc.pdf libgda-5.0.types libgda-5.0-sections.txt
+ 
+-DOC_STAMPS += pdf-build.stamp
+-CLEANFILES += $(DOC_STAMPS)
++DOC_STAMPS = pdf-build.stamp
++CLEANFILES = $(DOC_STAMPS)
+ 
+ # Create the PDF
+ PDF: pdf-build.stamp
+--- a/tools/browser/doc/Makefile.am
++++ b/tools/browser/doc/Makefile.am
+@@ -65,12 +65,12 @@
+ 
+ ADDCANVASLIBS=
+ if HAVE_GOOCANVAS
+-ADDCANVASLIBS+=$(top_builddir)/tools/browser/canvas/libcanvas.la -lm
++ADDCANVASLIBS=$(top_builddir)/tools/browser/canvas/libcanvas.la -lm
+ endif
+ 
+ ADDLDAPLIBS=
+ if LDAP
+-ADDLDAPLIBS+=$(top_builddir)/tools/browser/ldap-browser/libperspective.la
++ADDLDAPLIBS=$(top_builddir)/tools/browser/ldap-browser/libperspective.la
+ endif
+ 
+ GTKDOC_LIBS = \
+@@ -88,7 +88,6 @@
+ 	$(GTK_LIBS) \
+ 	$(GTKSOURCEVIEW_LIBS)
+ 
+-include $(top_srcdir)/gtk-doc.make
+ 
+ 
+ # Comment this out if you don't want 'make check' to test you doc status
+@@ -101,5 +100,5 @@
+ # endif
+ 
+ 
+-CLEANFILES += $(DOC_STAMPS)
++CLEANFILES = $(DOC_STAMPS)
+ 

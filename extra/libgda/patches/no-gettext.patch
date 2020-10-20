@@ -1,0 +1,50 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -62,8 +62,6 @@
+ AC_SUBST(GDA_REVISION)
+ AC_SUBST(GDA_AGE)
+ 
+-IT_PROG_INTLTOOL([0.40.6])
+-AC_SUBST(INTLTOOL_XML_RULE)
+ AC_CHECK_SIZEOF(unsigned int,0)
+ AC_CHECK_SIZEOF(unsigned long int,0)
+ AC_CHECK_SIZEOF([int *],0)
+@@ -144,15 +142,6 @@
+ AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
+ 
+ dnl ******************************
+-dnl Translations
+-dnl ******************************
+-GETTEXT_PACKAGE=libgda-$LIBGDA_ABI_VERSION
+-AC_SUBST(GETTEXT_PACKAGE)
+-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE")
+-AM_GLIB_GNU_GETTEXT
+-
+-
+-dnl ******************************
+ dnl Check for pkg-config version; want >= 0.18 because we need PKG_CHECK_EXISTS
+ dnl ******************************
+ PKG_PROG_PKG_CONFIG([0.18])
+@@ -611,12 +600,6 @@
+ 
+ AC_SUBST(LIBGCRYPT_CFLAGS)
+ AC_SUBST(LIBGCRYPT_LIBS)
+-
+-dnl ******************************
+-dnl gtk-doc
+-dnl ******************************
+-
+-GTK_DOC_CHECK([1.14],[--flavour no-tmpl])
+ 
+ dnl ******************************
+ dnl Vala documentation
+--- a/libgda/sqlite/virtual/Makefile.am
++++ b/libgda/sqlite/virtual/Makefile.am
+@@ -54,7 +54,6 @@
+ xmldir   = $(datadir)/libgda-5.0
+ xml_in_files = 
+ 
+-@INTLTOOL_XML_RULE@
+ 
+ xml_DATA = $(xml_in_files:.xml.in=.xml)
+ 

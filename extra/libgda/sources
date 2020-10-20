@@ -1,0 +1,4 @@
+https://gitlab.gnome.org/GNOME/libgda/-/archive/LIBGDA_5_2_9/libgda-LIBGDA_5_2_9.tar.gz
+patches/no-gtk-doc.patch
+patches/no-gettext.patch
+patches/fix-xml.patch
