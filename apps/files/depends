@@ -1,0 +1,17 @@
+dbus-glib
+glib
+granite
+gtk+3
+libcanberra
+libcloudproviders
+libgee
+libgit2-glib
+libhandy
+libnotify
+meson             make
+pango
+plank
+samurai           make
+sqlite
+vala              make
+zeitgeist
