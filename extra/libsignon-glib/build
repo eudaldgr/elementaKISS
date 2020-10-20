@@ -1,0 +1,18 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+sed -e "/^subdir('docs')$/d" -i meson.build
+
+cp libsignon-glib/*.xml libsignon-glib/interfaces
+
+meson \
+    --prefix=/usr \
+    -Ddebugging=false \
+    -Dintrospection=true \
+    -Dpython=true \
+    -Dtests=false \
+    . output
+
+ninja -C output
+ninja -C output install
