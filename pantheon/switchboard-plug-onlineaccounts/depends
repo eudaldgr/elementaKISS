@@ -1,0 +1,12 @@
+glib
+granite
+gtk+3
+libaccounts-glib
+libgee
+libsignon-glib
+meson            make
+rest
+samurai          make
+switchboard
+vala             make
+webkit2gtk
