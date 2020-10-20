@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+patch -p1 < fix-trigger-warning.patch
+
+./configure \
+    --prefix=/usr \
+    --sbindir=/usr/bin \
+    --without-python \
+    --disable-nls
+make
+make DESTDIR="$1" install
+
+# Remove static lib
+rm "$1/usr/lib/libcrack.a"
+
+for x in "$1/usr/share/cracklib/"*; do
+    gzip -c "$x" > "$x".gz
+    rm "$x"
+done
+
+install -Dm644 cracklib-words-2.9.7.gz?no-extract "$1/usr/share/cracklib/cracklib-words.gz"
