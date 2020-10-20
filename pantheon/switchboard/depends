@@ -3,6 +3,28 @@ glib
 granite
 gtk+3
 libgee
-meson       make
-samurai     make
-vala        make
+meson                             make
+samurai                           make
+switchboard-plug-a11y
+switchboard-plug-about
+switchboard-plug-applications
+switchboard-plug-bluetooth
+switchboard-plug-datetime
+switchboard-plug-display
+switchboard-plug-keyboard
+switchboard-plug-locale
+switchboard-plug-mouse-touchpad
+switchboard-plug-network
+switchboard-plug-notifications
+switchboard-plug-onlineaccounts
+switchboard-plug-pantheon-shell
+switchboard-plug-parental-control
+switchboard-plug-power
+switchboard-plug-printers
+switchboard-plug-security-privacy
+switchboard-plug-sharing
+switchboard-plug-sound
+switchboard-plug-useraccounts
+switchboard-plug-wacom
+switchboard-plug-wallet
+vala                              make
