@@ -1,0 +1,7 @@
+granite
+libnma
+meson          make
+networkmanager
+samurai        make
+vala           make
+wingpanel
