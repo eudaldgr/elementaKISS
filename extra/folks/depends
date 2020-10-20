@@ -1,0 +1,7 @@
+evolution-data-server
+libgee
+meson                 make
+readline
+samurai               make
+telepathy-glib
+vala                  make
