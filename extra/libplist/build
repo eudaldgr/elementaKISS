@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+export CC=gcc
+export CXX=g++
+
+autoreconf -fi
+
+./configure \
+    --prefix=/usr \
+    --mandir=/usr/share/man \
+    --without-cython
+
+make
+make DESTDIR="$1" install
