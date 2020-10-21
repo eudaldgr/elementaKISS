@@ -1,0 +1,17 @@
+clutter
+clutter-gtk
+evolution-data-server
+folks
+geoclue
+geocode-glib
+glib
+granite
+gtk+3
+libchamplain
+libgee
+libhandy
+libical
+meson                 make
+samurai               make
+vala                  make
+webkit2gtk

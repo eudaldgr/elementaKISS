@@ -2,11 +2,13 @@
 
 export DESTDIR="$1"
 
+patch -p1 < 00-musl.patch
 sed -i '/Tests/d' core/meson.build
-#sed -i 's/time_t/int64/g' core/Services/Calendar/Util/ECalComponent.vala
+sed -i 's/time_t/int64/g' core/Services/Calendar/Util/ECalComponent.vala
 
 meson \
     --prefix=/usr \
+    --libexecdir=/usr/bin \
     . output
 
 ninja -C output
