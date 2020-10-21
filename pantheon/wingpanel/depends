@@ -3,7 +3,18 @@ glib
 granite
 gtk+3
 libgee
-meson   make
+meson                             make
 mutter
-samurai make
-vala    make
+samurai                           make
+vala                              make
+wingpanel-indicator-a11y
+wingpanel-indicator-bluetooth
+wingpanel-indicator-datetime
+wingpanel-indicator-keyboard
+wingpanel-indicator-network
+wingpanel-indicator-nightlight
+wingpanel-indicator-notifications
+wingpanel-indicator-power
+wingpanel-indicator-privacy
+wingpanel-indicator-session
+wingpanel-indicator-sound
