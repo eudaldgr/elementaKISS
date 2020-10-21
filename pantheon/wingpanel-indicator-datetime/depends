@@ -1,0 +1,7 @@
+evolution-data-server
+granite
+libical
+meson                 make
+samurai               make
+vala                  make
+wingpanel

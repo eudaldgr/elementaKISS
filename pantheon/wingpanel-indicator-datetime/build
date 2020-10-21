@@ -2,6 +2,7 @@
 
 export DESTDIR="$1"
 
+patch -p1 < 00-musl.patch
 sed -i 's/time_t/int64/g' src/Widgets/calendar/Util.vala
 
 meson \

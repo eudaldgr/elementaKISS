@@ -1,1 +1,2 @@
 https://github.com/elementary/wingpanel-indicator-datetime/archive/2.2.5.tar.gz
+patches/00-musl.patch
