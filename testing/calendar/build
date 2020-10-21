@@ -1,0 +1,13 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+sed -i '/Tests/d' core/meson.build
+#sed -i 's/time_t/int64/g' core/Services/Calendar/Util/ECalComponent.vala
+
+meson \
+    --prefix=/usr \
+    . output
+
+ninja -C output
+ninja -C output install
