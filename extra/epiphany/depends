@@ -1,0 +1,19 @@
+dbus
+gcr
+glib
+gsettings-desktop-schemas
+gtk+3
+icu
+libdazzle
+libhandy
+libnotify
+libportal
+libsecret
+libsoup
+libxml2
+meson                     make
+nettle
+samurai                   make
+sqlite
+vala                      make
+webkit2gtk
