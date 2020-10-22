@@ -11,6 +11,9 @@ for patch in *.patch; do
     patch -p1 < "$patch"
 done
 
+sed -i "s/intltool_xml_cmd/['cp', '@INPUT@', '@OUTPUT@']/g" \
+    data/meson.build
+
 sed -i '/^intltool/d' \
     meson.build
 sed -i 's/printf.h/stdio.h/' \
@@ -41,7 +44,6 @@ sed -i '/RTLD_DEEPBIND/d' \
 
 kiss l elogind || logind=no
 kiss l dhcpcd  || dhcpcd=false
-# shellcheck disable=SC2034
 kiss l gnutls  || crypto=nss
 kiss l eiwd    || eiwd=false
 
