@@ -9,3 +9,5 @@ meson \
 
 ninja -C output
 ninja -C output install
+
+install -Dm644 io.elementary.desktop.agent-polkit.desktop -t "$1/etc/xdg/autostart"
