@@ -23,7 +23,7 @@ done
     --disable-nls \
     --enable-vala \
     --with-greeter-user=lightdm \
-    --with-greeter-session=lightdm-gtk-greeter
+    --with-greeter-session=lightdm-pantheon-greeter
 
 make
 make DESTDIR="$1" install
