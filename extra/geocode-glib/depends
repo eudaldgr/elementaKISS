@@ -1,5 +1,6 @@
 glib
 icu
+json-glib
 libffi
 libpsl
 libsoup
