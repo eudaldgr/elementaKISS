@@ -14,5 +14,6 @@ ninja -C output install
 # Remove unused stuff
 # shellcheck disable=2115
 rm -rf "$1/etc"
+# shellcheck disable=2115
 rm -rf "$1/usr/bin"
 rm -rf "$1/usr/libexec"
