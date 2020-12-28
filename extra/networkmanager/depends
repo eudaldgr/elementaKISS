@@ -10,5 +10,6 @@ linux-headers make
 perl          make
 pkgconf       make
 ppp
+python-gobject
 readline
 util-linux
