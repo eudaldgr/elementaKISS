@@ -6,6 +6,12 @@ for patch in *.patch; do
     patch -Np1 -i "$patch"
 done
 
+# Next release will come with libhandy-1, remove this
+sed -i "s/libhandy-0.0/libhandy-1', version: '>= 0.83.0/g" meson.build
+sed -i "s/Paginator/Carousel/g" src/Views/GridView.vala
+sed -i "s/Paginator/Carousel/g" src/Widgets/PageChecker.vala
+sed -i "s/Paginator/Carousel/g" src/Widgets/Switcher.vala
+
 meson \
     --prefix=/usr \
     -Dwith-zeitgeist=true \
