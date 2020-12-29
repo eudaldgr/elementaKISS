@@ -1,9 +1,12 @@
 autoconf              make
 automake              make
+dbus
+dbus-glib
 glib
 gobject-introspection
 gtk+3
 json-glib
+python-rdflib
 sqlite
 telepathy-glib
 xapian-core

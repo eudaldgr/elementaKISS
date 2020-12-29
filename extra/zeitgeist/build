@@ -2,7 +2,7 @@
 
 patch -p1 < no-gettext.patch
 
-NOCONFIGURE=1 ./autogen.sh
+NOCONFIGURE=1 autoreconf -fi
 
 touch po/Makefile.in.in
 printf 'all:\n\ttrue\ninstall:\n\ttrue\nclean:\n\ttrue\n' > po/Makefile
@@ -12,6 +12,7 @@ printf 'all:\n\ttrue\ninstall:\n\ttrue\nclean:\n\ttrue\n' > po/Makefile
     --sysconfdir=/etc \
     --localstatedir=/var \
     --libexecdir=/usr/lib \
+    --enable-fts \
     --without-dee-icu \
     --disable-nls
 
@@ -21,3 +22,4 @@ make
 make DESTDIR="$1" install
 
 rm -rf "$1/usr/lib/systemd"
+rm -rf "$1/usr/share/zeitgeist/doc"
