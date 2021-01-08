@@ -1,6 +1,0 @@
-#!/bin/sh -e
-
-delgroup colord colord 2>/dev/null
-delgroup colord 2>/dev/null
-
-exit 0

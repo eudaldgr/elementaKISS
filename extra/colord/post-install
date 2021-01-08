@@ -1,8 +1,0 @@
-#!/bin/sh -e
-
-addgroup -S colord 2>/dev/null
-adduser -S -D -h /var/lib/colord -s /sbin/nologin -G colord -g colord colord 2>/dev/null
-
-chown -R colord:colord /var/lib/colord
-
-exit 0
