@@ -4,6 +4,6 @@ granite
 gtk+3
 ibus
 meson           make
-polkit-elogind
+polkit
 switchboard
 vala            make
