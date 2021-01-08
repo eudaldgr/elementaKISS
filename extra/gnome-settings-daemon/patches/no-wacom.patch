@@ -1,19 +1,49 @@
---- old/meson.build
-+++ new/meson.build
-@@ -152,7 +152,7 @@
+--- a/meson.build
++++ b/meson.build
+@@ -142,6 +142,12 @@
+   assert(enable_gudev, 'GUdev is not optional on Linux platforms')
+ endif
+ 
++# Check for colord
++enable_colord = get_option('colord')
++if enable_colord
++  colord_dep = dependency('colord', version: '>= 1.3.5')
++endif
++
+ has_timerfd_create = cc.has_function('timerfd_create')
+ config_h.set10('HAVE_TIMERFD', has_timerfd_create)
+ 
+@@ -154,8 +160,8 @@
+ endif
  config_h.set10('HAVE_WAYLAND', enable_wayland)
  
- # wacom (disabled for s390/s390x and non Linux platforms)
+-# wacom (disabled for s390/s390x and non Linux platforms)
 -enable_wacom = host_is_linux_not_s390
++# wacom
 +enable_wacom = get_option('wacom')
  if enable_wacom
    assert(enable_gudev, 'GUDev support is required for wacom support.')
    libwacom_dep = dependency('libwacom', version: '>= 0.7')
---- old/meson_options.txt
-+++ new/meson_options.txt
-@@ -9,4 +9,5 @@
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -9,6 +9,7 @@
  option('rfkill', type: 'boolean', value: true, description: 'build with rfkill support (not optional on Linux platforms)')
  option('smartcard', type: 'boolean', value: true, description: 'build with smartcard support')
+ option('usb-protection', type: 'boolean', value: true, description: 'build with usb-protection support')
++option('wacom', type: 'boolean', value: true, description: 'build with Wacom devices support')
  option('wayland', type: 'boolean', value: true, description: 'build with Wayland support')
-+option('wacom', type: 'boolean', value: true, description: 'build with Wacom support')
  option('wwan', type: 'boolean', value: true, description: 'build with WWAN support')
+ option('colord', type: 'boolean', value: true, description: 'build with colord support')
+--- a/plugins/meson.build
++++ b/plugins/meson.build
+@@ -20,6 +20,10 @@
+ 
+ disabled_plugins = []
+ 
++if not enable_colord
++    disabled_plugins += ['colord']
++endif
++
+ if not enable_smartcard
+     disabled_plugins += ['smartcard']
+ endif

@@ -3,7 +3,7 @@
 export DESTDIR="$1"
 
 for patch in *.patch; do
-    patch -Np1 -i "$patch"
+    patch -p1 < "$patch"
 done
 
 meson \
@@ -11,14 +11,15 @@ meson \
     --libexecdir=/usr/lib/gnome-settings-daemon \
     --sysconfdir=/etc \
     --localstatedir=/var \
-    --buildtype=plain \
-    -Dalsa=true \
     -Dsystemd=false \
-    -Dwwan=false \
-    -Dwayland=false \
-    -Dwacom=false \
-    -Dsmartcard=false \
+    -Dalsa=true \
+    -Dcolord=false \
+    -Dcups=false \
     -Dnetwork_manager=false \
+    -Dsmartcard=false \
+    -Dwacom=false \
+    -Dwayland=false \
+    -Dwwan=false \
     . output
 
 ninja -C output

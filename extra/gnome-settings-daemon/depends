@@ -1,15 +1,10 @@
 alsa-lib
-colord
-cups
-gcr
 geoclue
 geocode-glib
-gnome-desktop
-lcms
-libcanberra
+libgudev
 libgweather
 libnotify
-nss
-polkit-elogind
+pkgconf      make
+polkit
 pulseaudio
 upower

@@ -1,5 +1,5 @@
---- old/meson.build
-+++ new/meson.build
+--- a/meson.build
++++ b/meson.build
 @@ -212,7 +212,6 @@
  
  # Sharing plugin
