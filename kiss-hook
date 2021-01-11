@@ -9,8 +9,32 @@ case $TYPE in
             gdk-pixbuf)
                 sed -i "s/-Dgir=false/-Dgir=true/g"                           "$repo_dir/build"
             ;;
+            gst-plugins-base)
+                sed -i "s/-Dintrospection=disabled/-Dintrospection=enabled/g" "$repo_dir/build"
+            ;;
+            gstreamer)
+                sed -i "s/-Dintrospection=disabled/-Dintrospection=enabled/g" "$repo_dir/build"
+            ;;
             gtk+3)
                 sed -i "s/-introspection=no/-introspection=yes/g"             "$repo_dir/build"
+            ;;
+            libsoup)
+                _flags=-Dintrospection=enabled
+
+                sed -i "s/\. output/$_flags \0/"                              "$repo_dir/build"
+                sed -i "s/-Dvapi=disabled/-Dvapi=enabled/g"                   "$repo_dir/build"
+            ;;
+            musl) # 1.2.1
+                sed -i '128iint innetgr(const char *, const char*, const char *, const char *);' \
+                    include/netdb.h
+
+                sed -i '20iint innetgr(const char *netgroup, const char *host,' \
+                    src/network/ent.c
+                sed -i '21i        const char *user, const char *domain)' \
+                    src/network/ent.c
+                sed -i '22i{'             src/network/ent.c
+                sed -i '23i    return 0;' src/network/ent.c
+                sed -i '24i}'             src/network/ent.c
             ;;
             pango)
                 sed -i "s/-Dintrospection=disabled/-Dintrospection=enabled/g" "$repo_dir/build"
@@ -29,8 +53,20 @@ case $TYPE in
             gdk-pixbuf)
                 sed -i "s/-Dgir=true/-Dgir=false/g"                           "$repo_dir/build"
             ;;
+            gst-plugins-base)
+                sed -i "s/-Dintrospection=enabled/-Dintrospection=disabled/g" "$repo_dir/build"
+            ;;
+            gstreamer)
+                sed -i "s/-Dintrospection=enabled/-Dintrospection=disabled/g" "$repo_dir/build"
+            ;;
             gtk+3)
                 sed -i "s/-introspection=yes/-introspection=no/g"             "$repo_dir/build"
+            ;;
+            libsoup)
+                _flags=-Dintrospection=enabled
+
+                sed -i "s/$_flags //"                                         "$repo_dir/build"
+                sed -i "s/-Dvapi=enabled/-Dvapi=disabled/g"                   "$repo_dir/build"
             ;;
             pango)
                 sed -i "s/-Dintrospection=enabled/-Dintrospection=disabled/g" "$repo_dir/build"
