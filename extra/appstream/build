@@ -29,4 +29,3 @@ ninja -C output install
 
 # Remove unused stuff
 rm -rf "$1/usr/share/gettext"
-rm -rf "$1/usr/share/man"
