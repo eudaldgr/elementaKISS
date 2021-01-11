@@ -5,6 +5,7 @@ export DESTDIR="$1"
 meson \
     --prefix=/usr \
     --libdir=/usr/lib \
+    --libexecdir=/usr/lib/elogind \
     --buildtype=plain \
     -Dcgroup-controller=elogind \
     -Ddbuspolicydir=/etc/dbus-1/system.d \

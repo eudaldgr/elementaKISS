@@ -5,3 +5,4 @@ gperf     make
 libcap
 linux-pam
 meson     make
+samurai   make
