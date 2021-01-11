@@ -1,7 +1,7 @@
 dbus
 granite
 meson          make
-polkit-elogind
+polkit
 samurai        make
 switchboard
 vala           make

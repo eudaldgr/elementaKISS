@@ -6,7 +6,7 @@ gtk+3
 libhandy
 libpwquality
 meson           make
-polkit-elogind
+polkit
 samurai         make
 switchboard
 vala            make

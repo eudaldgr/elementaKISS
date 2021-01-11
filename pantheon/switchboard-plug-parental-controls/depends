@@ -5,7 +5,7 @@ granite
 gtk+3
 libhandy
 meson           make
-polkit-elogind
+polkit
 samurai         make
 switchboard
 vala            make
