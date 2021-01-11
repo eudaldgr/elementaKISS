@@ -2,6 +2,9 @@
 
 export DESTDIR="$1"
 
+# Remove this next release
+sed -i 's/user_boxes)/user_boxes.values)/g' src/Services/UserManager.vala
+
 meson \
     --prefix=/usr \
     . output
