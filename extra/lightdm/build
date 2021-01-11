@@ -3,8 +3,16 @@
 export CFLAGS="$CFLAGS -D_GNU_SOURCE"
 
 for patch in *.patch; do
-    patch -p1 -i "$patch"
+    patch -p1 < "$patch"
 done
+
+sed -i 's/GETTEXT_PACKAGE/"lightdm"/g' src/lightdm.c
+sed -i '/gi18n.h/d'                    liblightdm-gobject/language.c
+sed -i '/gi18n.h/d'                    src/dm-tool.c
+sed -i '/gi18n.h/d'                    src/lightdm.c
+sed -i 's/N_(/(/g'                     src/lightdm.c
+sed -i 's/_(/(/g'                      src/dm-tool.c
+sed -i 's/_(/(/g'                      src/lightdm.c
 
 ./configure \
     --prefix=/usr \
@@ -23,7 +31,7 @@ done
     --disable-nls \
     --enable-vala \
     --with-greeter-user=lightdm \
-    --with-greeter-session=lightdm-pantheon-greeter
+    --with-greeter-session=lightdm-gtk-greeter
 
 make
 make DESTDIR="$1" install
