@@ -21,3 +21,6 @@ meson \
 
 ninja -C output
 ninja -C output install
+
+mkdir -p "$1/var/lib/AccountsService/users"
+mkdir -p "$1/var/lib/AccountsService/icons"
