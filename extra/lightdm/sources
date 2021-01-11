@@ -8,5 +8,4 @@ patches/disallow-guest.patch
 patches/musl-is-linux.patch
 patches/musl-language.patch
 patches/musl-updwtmpx.patch
-patches/no-gettext.patch
 patches/no-policy.patch

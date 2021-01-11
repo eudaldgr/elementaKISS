@@ -14,6 +14,22 @@ sed -i 's/N_(/(/g'                     src/lightdm.c
 sed -i 's/_(/(/g'                      src/dm-tool.c
 sed -i 's/_(/(/g'                      src/lightdm.c
 
+sed -i '/INTLTOOL_APPLIED_VERSION=/d'  configure
+sed -i "/version|grep '(GNU/d"         configure
+
+export MSGFMT=/usr/bin/true
+export MSGMERGE=/usr/bin/true
+export XGETTEXT=/usr/bin/true
+export mfversion=9.99.99
+export mmversion=9.99.99
+export xgversion=9.99.99
+export INTLTOOL_MERGE=/usr/bin/true
+export INTLTOOL_UPDATE=/usr/bin/true
+export INTLTOOL_EXTRACT=/usr/bin/true
+export INTLTOOL_PERL=/usr/bin/true
+export INTLTOOL_APPLIED_VERSION=9.99.99
+export ITSTOOL=/usr/bin/true
+
 ./configure \
     --prefix=/usr \
     --sbindir=/usr/bin \
